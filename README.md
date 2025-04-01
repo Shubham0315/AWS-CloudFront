@@ -13,3 +13,24 @@ AWS CloudFront GitHub repository provides tools, samples, and configurations for
   - Instead of image getting stored at central location, it will get stored at edge location (all zones of AWS).
  
 - CDN solves the problem by keeping multiple local copies.
+
+----------------------------------------------------------------------------------------------------------------
+
+How to host static website on S3 bucket?
+-
+- We can uplaod audio, video, binary objects and use it into our website.
+- But if user has direct access to S3 bucket for using the content, it will be security prone. Other challenge will be latency if everyone is trying to access bucket. Everytime we upload, there will be cost associated
+- So major challenges are
+  - Security
+  - Latency
+  - Cost
+- To overcome all we've CDN which helps us cache the content in the nearest edge locations. CDN service for AWS is CloudFront.
+- Edge locations can be locations from where user is trying to access the data.
+- So if users trying to access data of s3, content will be cached to edge locations. So if another user dont have need to access S3, he can directly go to edge locations and access it as it is cached.
+- This helps enhance security as users are not accessing S3 directly. Also we dont have to pay for upload/download as content is cached. Also latency issue is resolved.
+- So for user, it wont matter where website is hosted. They will be accessing from nearest locations. Thus data transfer cost will be less.
+
+
+Practical Demo
+-
+- 
