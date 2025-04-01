@@ -36,6 +36,7 @@ Practical Demo
 - Create bucket - Provide name (Same as our domain for website) - Block all public access (Only cloudfront to access it and not user) - Enable bucket versioning (to recover object if deleted) - Create bucket
 
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/19147ef6-d517-48d3-a3a8-54fbe2dc2e8e" />
+
 ![image](https://github.com/user-attachments/assets/98cc7272-a175-4da9-9f84-9d48f36910e7)
 ![image](https://github.com/user-attachments/assets/0bfd5cce-992f-4395-87ae-a2830d4835f9)
 
