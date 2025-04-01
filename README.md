@@ -33,4 +33,57 @@ How to host static website on S3 bucket?
 
 Practical Demo
 -
-- 
+- Create bucket - Provide name (Same as our domain for website) - Block all public access (Only cloudfront to access it and not user) - Enable bucket versioning (to recover object if deleted) - Create bucket
+
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/19147ef6-d517-48d3-a3a8-54fbe2dc2e8e" />
+![image](https://github.com/user-attachments/assets/98cc7272-a175-4da9-9f84-9d48f36910e7)
+![image](https://github.com/user-attachments/assets/0bfd5cce-992f-4395-87ae-a2830d4835f9)
+
+- Go inside bucket - Properties - Static website hosting - Edit - Enable - Add index and error pages - Save
+
+![image](https://github.com/user-attachments/assets/5b0ff1c4-9b7f-4ae8-94cc-94df5ea9bf04)
+![image](https://github.com/user-attachments/assets/2f24d963-35b5-4e2e-960b-5eabe22a8879)
+
+- Now we've created bucket and enabled static website hosting with public access blocked.
+
+- Now uplaod index.html and style.css
+
+![image](https://github.com/user-attachments/assets/4b665a4d-1d64-4f5d-b091-307107dceba1)
+
+- In bucket properties, we can see website URL. If we try to open it, we cannot access as we've disabled public access
+
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/9bcad5fd-8ff7-4046-8d68-7b8f46ee261f" />
+![image](https://github.com/user-attachments/assets/df3bf264-1b51-408c-b788-f5366539d1b1)
+
+
+- Now go to cloudfront - Create distribution - Provide origin domain (S3 and other objects get listed) - Name of origin will be auto generated when we select origin domain - Origin access should be "Legacy Access Identities" - Create new OAI (New identity will be created which will have access to bucket) - Update the bucket policy
+- Disable Web App Firewall (WAF)
+
+![image](https://github.com/user-attachments/assets/2eaba5b3-af88-407e-93d5-6072932898c8)
+![image](https://github.com/user-attachments/assets/b47ced19-4f81-4ae5-9456-1ad05aa2febf)
+
+  - In settings - Use all edge locations
+    - We can define SSL, default root objects (if multiple files/sub directories are there)
+    - Then create distribution
+    
+![image](https://github.com/user-attachments/assets/ef7d437e-1930-4f12-be86-2eff931da4c3)
+![image](https://github.com/user-attachments/assets/36dde9cb-bca6-43e5-9974-c429541f8df3)
+
+- We can see distribution got created with domain name
+
+![image](https://github.com/user-attachments/assets/1dc5e03d-3375-4b28-afcb-04e6fea07cb5)
+
+  - The URL in distribution domain name will point to S3 bucket. It is in deploying stage
+  - We can check S3 bucket to check bucket policies. It shows ID for OAI created with CloudFront origin access identity with s3 bucket as resource.
+
+![image](https://github.com/user-attachments/assets/cc8835e8-6726-45aa-b12c-000bef0ada66)
+
+
+
+- When we use cloudfront when many users are trying to access our app, CDN will actually reduce the cost. So use S3 buckets with CloudFront.
+
+- So if we try to access app from S3 bucket URL, access will be forbidden. But if we access from CDN cloudfront URL, we can access app with no latency.
+
+![image](https://github.com/user-attachments/assets/9438e5b3-107d-4ee0-84f3-33819262d34a)
+
+
