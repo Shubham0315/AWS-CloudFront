@@ -54,6 +54,7 @@ Practical Demo
 - In bucket properties, we can see website URL. If we try to open it, we cannot access as we've disabled public access
 
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/9bcad5fd-8ff7-4046-8d68-7b8f46ee261f" />
+
 ![image](https://github.com/user-attachments/assets/df3bf264-1b51-408c-b788-f5366539d1b1)
 
 
